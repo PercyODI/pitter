@@ -9,12 +9,13 @@
 <html lang="en">
     <head>
         <title>Pearse's Digital Ocean Test Page</title>
-         <link rel="stylesheet" type="text/css" href="styling.css"> 
+        <link rel="stylesheet" type="text/css" href="styling.css"> 
         <link href="css/bootstrap.css" rel="stylesheet">
     </head>
     <body>
-        <div class="container" style="background-color: lightgrey">
-            <h1 class="jumbotron centerfy">Welcome to Pitter!</h1>
+        <div class="container" style="background-color: #A7A9B2">
+            <br>
+            <h1 class="jumbotron centerfy" style='background-color: #D1D6D8'>Welcome to Pitter!</h1>            
             <?php
                 if(isset($_SESSION['message'])) {
                     echo "<div class='alert alert-info fade in'><a href='#' class='close' data-dismiss='alert'>&times;</a>" . $_SESSION['message'] . "</div>";
@@ -23,7 +24,7 @@
             ?>
             <form method='post' action='add.php'>
                 <p>Your status:</p>
-                <textarea class="form-control" rows="2"></textarea>
+                <textarea class="form-control" rows="2" name="body"></textarea>
                 <p><input type='submit' value='submit'></p>
             </form>
             <?php
@@ -36,14 +37,14 @@
                 }
                 $myusers[] = $_SESSION['userid'];
 
-                $posts = show_posts($myusers, 10);
+                $posts = show_posts($myusers, 9);
 
                 if (count($posts)){
                     echo "<div class='row'>\n";
                     foreach ($posts as $key => $list){ 
-                        echo "<div class='col-md-4'>\n";
-                            echo "<div style='background-color: #E40606; border: 2px solid #B10000;'>\n";
-                                echo "<div>" . find_username($list['userid']) . "</div><br>\n";
+                        echo "<div class='col-md-4 vert-padding'>\n";
+                            echo "<div class='centerfy' style='background-color: #DEE6DF; border: 2px solid #99C7A3; border-radius: 25px; padding: 8px;'>\n";
+                                echo "<div style='text-decoration: underline;'>" . find_username($list['userid']) . "</div>\n";
                                 echo "<div>" . $list['body'] . "</div>\n";
                                 echo "<div>".$list['stamp'] . "</div>\n";
                             echo "</div>\n";

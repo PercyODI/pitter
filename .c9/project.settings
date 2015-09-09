@@ -26,6 +26,7 @@
     },
     "run": {
         "@path": "/.c9/runners",
+        "@runner": "PHP (built-in web server)",
         "configs": {
             "@inited": "true",
             "json()": {}

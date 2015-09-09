@@ -5,8 +5,9 @@
 
 	function add_post($userid, $body) {
 		global $mylink;
-		$sql = "insert into posts (user_id, body, stamp)
-			values ($userid, '". mysqli_real_escape_string($mylink, $body). "', now())";
+		$body = mysqli_real_escape_string($mylink, $body);
+		$sql = "insert into posts (user_id, body, stamp) values ($userid, '$body', now())";
+		echo $sql;
 		$result = mysqli_query($mylink, $sql);
 	}
 
